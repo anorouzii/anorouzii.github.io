@@ -8,8 +8,39 @@
     vertical-align: baseline;
     font-weight: normal;
 }
+/*Fonts*/
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('fonts/SourceSansPro-Regular.woff2') format('woff2'),
+    url('fonts/SourceSansPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('fonts/SourceSansPro-SemiBold.woff2') format('woff2'),
+    url('fonts/SourceSansPro-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
 body {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 400;
+    color: #363a3e;
+}
+h1 {
+    font-weight: 600;
+    font-size: 25px;
+}
+.main-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.instagram,.linkedin,.dribble,.envelope {
+    margin-top: 10px;
+    width: 20px;
+    margin-right: 10px;
 }
