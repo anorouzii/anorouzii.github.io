@@ -10,16 +10,63 @@
 <body>
 <div id="main-box">
     <h1 id="title">Ali Norouzi</h1>
-    <p id="description">Front-end web developer</p>
+    <p id="description"><span>A passionate</span>, self-taught Front-end web developer</p>
     <ul id="social-links">
         <li><a href="https://www.linkedin.com/in/anorouzii/" target="_blank" rel="nofollow"><img id="linkedin" src="img/linkedin.svg"></a></li>
         <li><a href="https://github.com/anorouzii" target="_blank" rel="nofollow"><img id="github" src="img/github.svg"></a></li>
         <li><a href="https://www.codepen.io/anorouzi/" target="_blank" rel="nofollow"><img id="codepen" src="img/codepen.svg"></a></li>
         <li><a href="https://www.instagram.com/anorouzii/" target="_blank" rel="nofollow"><img id="instagram" src="img/instagram.svg"></a></li>
         <li><a href="https://dribbble.com/anorouzi" target="_blank" rel="nofollow"><img id="dribble" src="img/dribble.svg"></a></li>
-        <li><a href="#"><img id="envelope" src="img/envelope.svg"></a></li>
-        <li><a id="works" href="#">Works</a></li>
+        <li><a href="#open-modal"><img id="envelope" src="img/envelope.svg"><span id="contact-form-tooltip">Contact Form</span></a></li>
     </ul>
+    <a id="works" href="">Works</a>
 </div>
+<div id="open-modal" class="modal-window">
+    <div>
+        <a href="#" title="Close" class="modal-close">Close</a>
+        <form method="post">
+            <input id="name"  type='text' name='Name' placeholder="Your Name" required/>
+            <input id="email" type='email' name='Email' placeholder="Email Address" required/>
+            <textarea id="msg" name="Message" cols="30" rows="10" placeholder="Message" required></textarea>
+            <div id="demo">&nbsp;</div>
+            <input type='submit' value='Submit' onclick="sendData(event)" id="form-btn"/>
+        </form>
+</div>
+</div>
+<script>
+    document.getElementById("contact-form-tooltip").addEventListener("click", function(){
+        setTimeout(function () {
+            document.getElementById("name").focus()
+        },500);
+    });
+    function sendData(event) {
+        event.preventDefault();
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var msg = document.getElementById("msg").value;
+        var str = "Name="+name+"&Email="+email+"&Message="+msg;
+        var re = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}/igm;
+        if (re.test(email)) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "https://getsimpleform.com/messages?form_api_token=a0771a1c0a7e5d64fe302e48a2b864b2", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send(str);
+            if (xhttp.responseText === "") {
+                document.getElementById("demo").innerHTML = "<p id='success-msg'>I received your message and will review it soon</p>"
+                setTimeout(function () {
+                    var successMsg = document.getElementById("success-msg");
+                    successMsg.style.display = "none";
+                },2000)
+            }
+        }else {
+            var emailBB = document.getElementById("email");
+            emailBB.style.borderBottom = "2px solid #ff6d6d";
+            emailBB.focus();
+            setTimeout(function () {
+               emailBB.style.borderBottom = "2px solid #f1f1f1";
+            },2000)
+        }
+    }
+</script>
 </body>
 </html>
