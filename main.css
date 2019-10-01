@@ -1,12 +1,19 @@
 /*Reset Css*/
-* {
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, i, ul, li,textarea,input
+ {
     margin: 0;
     padding: 0;
-    border: none;
+    border: 0;
     font-size: 100%;
-    font-family: inherit;
+    font: inherit;
     vertical-align: baseline;
-    font-weight: normal;
+}
+/* HTML5 display-role reset for older browsers */
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
 }
 /*Fonts*/
 @font-face {
@@ -36,6 +43,7 @@ body {
     font-family: 'Merriweather', serif;
     font-weight: 400;
     color: #363a3e;
+    box-sizing: border-box;
 }
 ::-moz-selection { /* Code for Firefox */
     color: #363a3e;
@@ -76,9 +84,11 @@ body {
     padding-bottom: 10px;
 }
 #main-box {
+    margin: 0;
     position: absolute;
-    top: 45%;
-    left: 53%;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
 #social-links li {
@@ -141,14 +151,6 @@ input[type="text"],input[type="email"],textarea {
     background: #ffffff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
 }
-.modal-window header {
-    font-weight: bold;
-}
-.modal-window h1 {
-    font-size: 150%;
-    margin: 0 0 15px;
-}
-
 .modal-close {
     color: #aaa;
     line-height: 50px;
@@ -162,23 +164,6 @@ input[type="text"],input[type="email"],textarea {
 }
 .modal-close:hover {
     color: black;
-}
-
-/* Demo Styles */
-
-.container {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.modal-window div:not(:last-of-type) {
-    margin-bottom: 15px;
-}
-
-small {
-    color: #aaa;
 }
 
 #form-btn {
@@ -221,4 +206,50 @@ small {
     margin-top: 8px;
     margin-left: -6px;
     font-weight: 600;
+}
+/*Some responsive */
+#mobile-nav {
+    display: none;
+}
+@media (max-width: 925px) {
+    #main-box {
+        width: 500px;
+    }
+}
+@media (max-width: 530px) {
+    #main-box {
+        width: 100%;
+        text-align: center;
+    }
+    #works,#contact-form-tooltip,#envelope {
+        display: none;
+    }
+    #mobile-nav {
+        display: inline-block;
+        position: fixed;
+        bottom: 0;
+        padding: 20px 10px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0px -3px 13px 0px rgba(221, 221, 221, 0.5019607843137255);
+    }
+    #mb-works,#mb-cf {
+        text-decoration: none;
+        background: rgba(253, 203, 110, 0.78);
+        color: #363a3e;
+        transform: skewX(15deg);
+        display: inline-block;
+        padding: 4px 14px;
+        font-style: italic;
+    }
+    #description span {
+        border-bottom: 3px solid rgba(253, 203, 110, 0.78);
+        padding-bottom: 6px;
+    }
+    #title {
+        margin-bottom: 15px;
+    }
+    .modal-window > div {
+        width: 80%;
+    }
 }
