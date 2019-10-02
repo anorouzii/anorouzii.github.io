@@ -234,8 +234,9 @@ input[type="text"],input[type="email"],textarea {
         border-bottom: 3px solid rgba(253, 203, 110, 0.78);
         padding-bottom: 6px;
     }
-    #title {
-        margin-bottom: 15px;
+    #name-type {
+        width: 174px;
+        margin-bottom: 14px;
     }
     .modal-window > div {
         width: 80%;
