@@ -23,13 +23,6 @@ ol, ul {
     font-weight: normal;
     font-style: normal;
 }
-@font-face {
-    font-family: 'Merriweather';
-    src: url('fonts/Merriweather-Bold.woff2') format('woff2'),
-    url('fonts/Merriweather-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
 body {
     font-family: 'Merriweather', serif;
     font-weight: 400;
@@ -59,17 +52,18 @@ body {
     font-size: 14px;
 }
 #name-type {
-    width: 204px;
+    width: 188px;
     margin-bottom: 9px;
 }
 #description {
-    font-size: 19px;
+    font-size: 18px;
     line-height: 33px;
-    margin-bottom: 13px;
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
 }
 #description span {
-    border-bottom: 4px solid rgba(253, 203, 110, 0.78);
-    padding-bottom: 10px;
+    border-bottom: 3px solid rgba(253, 203, 110, 0.78);
+    padding-bottom: 5px;
 }
 #main-box {
     margin: 0;
@@ -78,6 +72,17 @@ body {
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    animation: fade 1s;
+}
+@keyframes fade {
+    from {
+        opacity: 0;
+        margin-top: 10px;
+    }
+    to {
+        opacity: 1;
+        margin-top: 0;
+    }
 }
 #social-links li {
     list-style: none;
@@ -95,10 +100,10 @@ body {
     text-decoration: none;
     color: #fff;
     background: #363a3e;
-    font-weight: 600;
-    border-radius: 8px;
+    font-weight: 400;
+    border-radius: 2px;
     padding: 14px 26px 15px 27px;
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 23px;
     position: absolute;
 }
@@ -112,7 +117,7 @@ input[type="text"],input[type="email"],textarea {
 }
 .modal-window {
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(0, 0, 0, 0.09);
     top: 0;
     right: 0;
     bottom: 0;
@@ -159,10 +164,10 @@ input[type="text"],input[type="email"],textarea {
     text-decoration: none;
     color: #fff;
     background: #363a3e;
-    font-weight: 600;
-    border-radius: 8px;
+    font-weight: 400;
+    border-radius: 2px;
     padding: 14px 26px 15px 27px;
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 23px;
 }
 #success-msg {
@@ -177,22 +182,22 @@ input[type="text"],input[type="email"],textarea {
     position: absolute;
     top: 50%;
     right: 100%;
-    margin-top: -5px;
+    margin-top: -6px;
     border-width: 5px;
     border-style: solid;
-    border-color: transparent #c7c7c7 transparent transparent;
+    border-color: transparent #fdd68d transparent transparent;
 }
 #contact-form-tooltip {
     width: 76px;
     position: absolute;
-    border: 1px solid #c7c7c7;
-    padding: 4px 7px;
+    border: 1px solid #fdd68d;
+    padding: 5px 7px 4px 7px;
     font-size: 11px;
-    border-radius: 3px;
-    background: #ffffff;
-    color: rgb(158, 158, 158);
+    border-radius: 1px;
+    background: #fdd68d;
+    color: rgba(54, 58, 62, 0.75);
     margin-top: 11px;
-    margin-left: -6px;
+    margin-left: -4px;
     font-weight: 400;
 }
 /*Some responsive */
@@ -202,6 +207,22 @@ input[type="text"],input[type="email"],textarea {
 @media (max-width: 925px) {
     #main-box {
         width: 500px;
+    }
+    .modal-window:target {
+        overflow-y: scroll;
+    }
+}
+@media (max-height: 485px) {
+    .modal-window {
+        background-color: rgba(0, 0, 0, 0.37)
+    }
+    .modal-window:target {
+        overflow-y: scroll;
+        height: 100%;
+    }
+    .modal-window > div {
+        margin: 117px 0 10px;
+        height: 370px;
     }
 }
 @media (max-width: 530px) {
@@ -229,16 +250,24 @@ input[type="text"],input[type="email"],textarea {
         display: inline-block;
         padding: 4px 14px;
         font-style: italic;
+        font-size: 14px;
+    }
+    #description {
+        font-size: 15px;
+        padding: 0 28px;
     }
     #description span {
-        border-bottom: 3px solid rgba(253, 203, 110, 0.78);
-        padding-bottom: 6px;
+        border-bottom: 2px solid rgba(253, 203, 110, 0.78);
+        padding-bottom: 3px;
     }
     #name-type {
-        width: 174px;
+        width: 167px;
         margin-bottom: 14px;
     }
     .modal-window > div {
         width: 80%;
+    }
+    #social-links {
+        margin-top: 28px;
     }
 }
