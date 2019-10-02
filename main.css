@@ -17,16 +17,6 @@ ol, ul {
 }
 /*Fonts*/
 @font-face {
-    font-family: 'Segoe UI';
-    src: url('fonts/SegoeUi-Bold.eot');
-    src: url('fonts/SegoeUi-Bold.eot?#iefix') format('embedded-opentype'),
-    url('fonts/SegoeUi-Bold.woff2') format('woff2'),
-    url('fonts/SegoeUi-Bold.woff') format('woff');
-    url('fonts/SegoeUI-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-@font-face {
     font-family: 'Merriweather';
     src: url('fonts/Merriweather-Regular.woff2') format('woff2'),
     url('fonts/Merriweather-Regular.woff') format('woff');
@@ -68,12 +58,9 @@ body {
     color: #c7c7c7;
     font-size: 14px;
 }
-#title {
-    font-weight: 700;
-    font-size: 40px;
-    margin-bottom: 5px;
-    font-family: Segoe UI, serif;
-    letter-spacing: -1.4px;
+#name-type {
+    width: 204px;
+    margin-bottom: 9px;
 }
 #description {
     font-size: 19px;
@@ -203,10 +190,10 @@ input[type="text"],input[type="email"],textarea {
     font-size: 11px;
     border-radius: 3px;
     background: #ffffff;
-    color: rgb(54, 58, 62);
-    margin-top: 8px;
+    color: rgb(158, 158, 158);
+    margin-top: 11px;
     margin-left: -6px;
-    font-weight: 600;
+    font-weight: 400;
 }
 /*Some responsive */
 #mobile-nav {
